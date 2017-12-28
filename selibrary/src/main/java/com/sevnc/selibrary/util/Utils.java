@@ -1,10 +1,17 @@
 package com.sevnc.selibrary.util;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by QuangVan on 27/12/2017.
@@ -22,7 +29,7 @@ public class Utils {
     public static String getAdsName(Context mContext) {
         SharedPreferences pre = mContext.getSharedPreferences(ADS_NAME, mContext.MODE_PRIVATE);
         String ads_name;
-        ads_name = pre.getString(ADS_NAME, "null");
+        ads_name = pre.getString(ADS_NAME, "admob");
         Log.e("get ads_name", ads_name);
         return ads_name;
     }
@@ -85,20 +92,69 @@ public class Utils {
 
 
 
-    /*
+    // Set font
+    public static void setFontsTextView(Activity mContext, TextView mTextView,
+                                        String fontName) {
+        try {
+            Typeface type = Typeface.createFromAsset(mContext.getAssets(), "fonts/"
+                    + fontName);
+            mTextView.setTypeface(type);
+        } catch (Exception e) {
+            Log.e("Lỗi setFontsTextView", e.getMessage());
+        }
 
-    status: "ok",
-error_code: 0,
-developer: "Software Evolution",
-message: "Success!",
-advertise: [
-{
-ads_name: "admob",
-id_banner: "ca-app-pub-6771983271710470/4246976826",
-id_full: "ca-app-pub-6771983271710470/3480690067",
-ads_id: "1",
-status: "1"
-}
-],
-     */
+    }
+
+    public static void setFontsEditText(Activity mContext, EditText mEditText,
+                                        String fontName) {
+        try {
+            Typeface type = Typeface.createFromAsset(mContext.getAssets(), "fonts/"
+                    + fontName);
+            mEditText.setTypeface(type);
+        } catch (Exception e) {
+            Log.e("Lỗi setFontsTextView", e.getMessage());
+        }
+
+    }
+
+
+    public static void setFontsButton(Activity mContext, Button mButton,
+                                      String fontName) {
+        try {
+            Typeface type = Typeface.createFromAsset(mContext.getAssets(), "fonts"
+                    + fontName);
+            mButton.setTypeface(type);
+        } catch (Exception e) {
+            Log.e("Lỗi setFontsButton", e.getMessage());
+        }
+
+    }
+
+    @SuppressLint("NewApi")
+    @SuppressWarnings("deprecation")
+    public static void onClickCopy(Context mContext, String str, String toast) {
+        // User-defined onClick Listener
+        try {
+            int sdk_Version = android.os.Build.VERSION.SDK_INT;
+            if (sdk_Version < android.os.Build.VERSION_CODES.HONEYCOMB) {
+                android.text.ClipboardManager clipboard = (android.text.ClipboardManager) mContext
+                        .getSystemService(Context.CLIPBOARD_SERVICE);
+                clipboard.setText(str); // Assuming that you are copying the text
+                // from a TextView
+                Toast.makeText(mContext, toast, Toast.LENGTH_LONG).show();
+            } else {
+                android.content.ClipboardManager clipboard = (android.content.ClipboardManager) mContext
+                        .getSystemService(Context.CLIPBOARD_SERVICE);
+                android.content.ClipData clip = android.content.ClipData
+                        .newPlainText("aloapp", str);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(mContext, toast, Toast.LENGTH_LONG).show();
+            }
+            Log.v("", "Copy nội dung.");
+        } catch (Exception e) {
+            Log.e("Lỗi onClickCopy", e.getMessage());
+        }
+
+
+    }
 }

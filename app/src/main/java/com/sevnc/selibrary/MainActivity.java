@@ -1,8 +1,7 @@
 package com.sevnc.selibrary;
 
-import android.util.Log;
-
 import com.sevnc.selibrary.activity.SEActivity;
+import com.sevnc.selibrary.ads.NetworkAds;
 
 public class MainActivity extends SEActivity {
 
@@ -13,9 +12,18 @@ public class MainActivity extends SEActivity {
 
     @Override
     protected void settingView() {
-        Log.e("id banner", id_banner);
-        Log.e("id full", id_full);
-        Log.e("ads_name", ads_name);
+        NetworkAds.BannerAds(this, R.id.ads);
+        NetworkAds.loadFullAds(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        NetworkAds.showInterstitialAd(ads_name);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
