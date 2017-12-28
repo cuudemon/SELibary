@@ -9,6 +9,7 @@ import android.util.Log;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.sevnc.selibrary.R;
+import com.sevnc.selibrary.ads.ExitAds;
 import com.sevnc.selibrary.util.Utils;
 
 import org.json.JSONArray;
@@ -30,6 +31,7 @@ public abstract class SEActivity extends AppCompatActivity {
     protected String id_banner;
     protected String id_full;
     protected String ads_name;
+    private ExitAds ads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public abstract class SEActivity extends AppCompatActivity {
         ads_name = Utils.getAdsName(this);
         getIdAds();
         settingView();
-//        ads = new ExitAds(this);
+        ads = new ExitAds(this);
 
     }
 
@@ -80,10 +82,14 @@ public abstract class SEActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
+                    Log.e("get id ads", "Fail to get ID");
                 }
             });
         }
+    }
+
+    protected void exitDialog() {
+        ads.showExitDialog();
     }
 
     /**

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="yes">Thoát</string>
+    <string name="no">Hủy</string>
+    <string name="exitTile">Bạn có chắc muốn thoát không?</string>
+    <string name="exitTile_on">Tải thêm nhiều ứng dụng hay?</string>
+    <string name="ads">Ứng dụng hay</string>
+    <string name="tentacgia">Trần Quang Văn</string>
+</resources>

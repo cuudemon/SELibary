@@ -18,8 +18,8 @@ public class MainActivity extends SEActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         NetworkAds.showInterstitialAd(ads_name);
+        exitDialog();
     }
 
     @Override

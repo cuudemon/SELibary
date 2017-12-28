@@ -9,6 +9,6 @@
     <dimen name="paddingexitads">10.0dip</dimen>
     <dimen name="margin">5dp</dimen>
     <dimen name="image_size">35dp</dimen>
-    <dimen name="exit_dialog_width">350dp</dimen>
-    <dimen name="focus_ads">130dp</dimen>
+    <dimen name="exit_dialog_width">550dp</dimen>
+    <dimen name="focus_ads">200dp</dimen>
 </resources>

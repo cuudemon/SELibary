@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    style="@style/MyCardViewStyle"
+    android:layout_width="@dimen/exit_dialog_width"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginRight="@dimen/margin"
+    android:background="#f3f4f8"
+    android:clickable="true"
+    android:focusable="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:id="@+id/topMenu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorMenuAds"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/image_size"
+                android:layout_height="@dimen/image_size"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/feed_item_profile_info_padd"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/tvAds"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/feed_item_profile_info_padd"
+                android:gravity="center_vertical"
+                android:text="@string/exitTile"
+                android:textColor="#3c3f50"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/listApps"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#eff2f2"
+            android:padding="@dimen/margin"
+            android:visibility="gone"
+            android:layout_below="@+id/topMenu"
+            android:gravity="center">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scrollbars="none" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/native_ad_container"
+            android:layout_width="match_parent"
+            android:background="@mipmap/focus_ads"
+            android:layout_height="@dimen/focus_ads"
+            android:layout_below="@id/listApps"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomMenu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/native_ad_container"
+            android:background="@color/colorMenuAds"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin">
+
+            <LinearLayout
+                android:id="@+id/btnNo"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_pressed"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/no"
+                    android:textColor="#3c3f50"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnYes"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_pressed"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/yes"
+                    android:textColor="#3c3f50"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+
