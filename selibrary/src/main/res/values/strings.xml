@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SELibrary</string>
-    <string name="yes">Exit</string>
-    <string name="no">Cancel</string>
+    <string name="yes">EXIT</string>
+    <string name="no">CANCEL</string>
     <string name="exitTile">Are you sure want to exit?</string>
     <string name="exitTile_on">Download more useful applications?</string>
     <string name="ads">Recommend</string>

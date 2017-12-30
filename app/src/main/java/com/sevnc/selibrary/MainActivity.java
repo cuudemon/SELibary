@@ -14,6 +14,8 @@ public class MainActivity extends SEActivity {
     protected void settingView() {
         NetworkAds.BannerAds(this, R.id.ads);
         NetworkAds.loadFullAds(this);
+
+
     }
 
     @Override

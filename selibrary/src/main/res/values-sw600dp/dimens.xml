@@ -11,4 +11,6 @@
     <dimen name="image_size">35dp</dimen>
     <dimen name="exit_dialog_width">450dp</dimen>
     <dimen name="focus_ads">170dp</dimen>
+    <dimen name="banner_ads_height">85dp</dimen>
+    <dimen name="bottom_menu_height">50dp</dimen>
 </resources>

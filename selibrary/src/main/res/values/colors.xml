@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#F50057</color>
     <color name="colorPrimaryDark">#C51162</color>
+    <color name="color_button_pressed">#ec6595</color>
     <color name="textColorPrimary">#FFFFFF</color>
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    style="@style/MyCardViewStyle"
+    android:layout_width="@dimen/exit_dialog_width"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="@dimen/margin"
+    android:layout_marginRight="@dimen/margin"
+    android:background="#ffffff"
+    android:clickable="true"
+    android:focusable="false">
 
     <ImageView
         android:id="@+id/imBannerAds"
@@ -11,4 +19,4 @@
         android:layout_marginLeft="5dp"
         android:adjustViewBounds="true" />
 
-</FrameLayout>
+</android.support.v7.widget.CardView>
