@@ -20,9 +20,9 @@ import java.util.List;
 
 public class AdapterAds extends RecyclerView.Adapter<AdapterAds.BackgroundHolder> {
     private Context mContext;
-    private List<AdsItems.ResultsBean> mAdsItem;
+    private List<AdsItems.ItemsBean> mAdsItem;
 
-    public AdapterAds(Context mContext, List<AdsItems.ResultsBean> mAdsItem) {
+    public AdapterAds(Context mContext, List<AdsItems.ItemsBean> mAdsItem) {
         this.mContext = mContext;
         this.mAdsItem = mAdsItem;
     }

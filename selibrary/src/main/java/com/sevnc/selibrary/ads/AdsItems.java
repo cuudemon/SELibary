@@ -8,19 +8,20 @@ import java.util.List;
 
 public class AdsItems {
 
+
     /**
      * status : ok
      * error_code : 0
      * developer : Software Evolution
      * message : Success!
-     * results : [{"cat_int":"2","category":"Books & Reference","app_type":"2","type":"Tiện ích","package_name":"com.se.doctruyenma","title":"Truyện ma","icon":"https://lh3.googleusercontent.com/2Wn6PbKmSFvqxRm4DOgSAPiTbmyZ_SerVpncqHvDES1OH7NEt6wKK_SMTTzWPT3S51Zc=w300","ads_banner":"https://i.imgur.com/J3WW1vR.jpg","ads_priority_banner":"https://i.imgur.com/tU08fqV.jpg","i18n_lang":"2","developer":"SEsoft","created":"4/2017","market_url":"market://details?id=com.se.doctruyenma","priority":"1"}]
+     * items : [{"cat_int":"2","category":"Books & Reference","app_type":"2","type":"Tiện ích","package_name":"com.se.doctruyenma","title":"Truyện ma","icon":"https://lh3.googleusercontent.com/2Wn6PbKmSFvqxRm4DOgSAPiTbmyZ_SerVpncqHvDES1OH7NEt6wKK_SMTTzWPT3S51Zc=w300","ads_banner":"https://i.imgur.com/KCoTm3P.jpg","ads_priority_banner":"https://i.imgur.com/uSjO1Hm.jpg","i18n_lang":"2","developer":"SEsoft","created":"4/2017","market_url":"market://details?id=com.se.doctruyenma","priority":"1"}]
      */
 
     private String status;
     private int error_code;
     private String developer;
     private String message;
-    private List<ResultsBean> results;
+    private List<ItemsBean> items;
 
     public String getStatus() {
         return status;
@@ -54,15 +55,17 @@ public class AdsItems {
         this.message = message;
     }
 
-    public List<ResultsBean> getResults() {
-        return results;
+    public List<ItemsBean> getItems() {
+        return items;
     }
 
-    public void setResults(List<ResultsBean> results) {
-        this.results = results;
+    public void setItems(List<ItemsBean> items) {
+        this.items = items;
     }
 
-    public static class ResultsBean {
+
+
+    public static class ItemsBean {
         /**
          * cat_int : 2
          * category : Books & Reference
@@ -71,8 +74,8 @@ public class AdsItems {
          * package_name : com.se.doctruyenma
          * title : Truyện ma
          * icon : https://lh3.googleusercontent.com/2Wn6PbKmSFvqxRm4DOgSAPiTbmyZ_SerVpncqHvDES1OH7NEt6wKK_SMTTzWPT3S51Zc=w300
-         * ads_banner : https://i.imgur.com/J3WW1vR.jpg
-         * ads_priority_banner : https://i.imgur.com/tU08fqV.jpg
+         * ads_banner : https://i.imgur.com/KCoTm3P.jpg
+         * ads_priority_banner : https://i.imgur.com/uSjO1Hm.jpg
          * i18n_lang : 2
          * developer : SEsoft
          * created : 4/2017
@@ -95,7 +98,7 @@ public class AdsItems {
         private String market_url;
         private String priority;
 
-        public ResultsBean(String cat_int, String category, String app_type, String type, String package_name, String title, String icon, String ads_banner, String ads_priority_banner, String i18n_lang, String developer, String created, String market_url, String priority) {
+        public ItemsBean(String cat_int, String category, String app_type, String type, String package_name, String title, String icon, String ads_banner, String ads_priority_banner, String i18n_lang, String developer, String created, String market_url, String priority) {
             this.cat_int = cat_int;
             this.category = category;
             this.app_type = app_type;

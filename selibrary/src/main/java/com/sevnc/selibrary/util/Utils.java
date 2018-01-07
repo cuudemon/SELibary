@@ -18,8 +18,9 @@ import android.widget.Toast;
  */
 
 public class Utils {
-    public static String GET_ADS_ID_URL = "http://service.sevnc.com/api/get-ads?package_name=";
-    public static String ADVERTISE = "advertise";
+    public static String GET_ADS_ID_URL = "http://api.sevnc.com/advertise/get-advertise?package_name=";
+    public static String POST_FEEDBACK_URL = "";
+    public static String ITEMS = "items";
     public static String ADS_NAME = "ads_name";
     public static String STATUS = "status";
     public static String ID_BANNER = "id_banner";

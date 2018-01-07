@@ -7,6 +7,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -39,8 +42,8 @@ public class ExitAds {
     private Gson gson;
     private AsyncHttpClient client;
     private AdsItems getAdsObj;
-    public static ArrayList<AdsItems.ResultsBean> ads = new ArrayList<AdsItems.ResultsBean>();
-    ArrayList<AdsItems.ResultsBean> focus_ads = new ArrayList<AdsItems.ResultsBean>();
+    public static ArrayList<AdsItems.ItemsBean> ads = new ArrayList<AdsItems.ItemsBean>();
+    ArrayList<AdsItems.ItemsBean> focus_ads = new ArrayList<AdsItems.ItemsBean>();
 
 
     public ExitAds(final Context mContext) {
@@ -50,7 +53,7 @@ public class ExitAds {
         dialogAds.setContentView(R.layout.dialog_exit_fb);
 
         if (Utils.isConnectingToInternet(mContext)) {
-            url = "http://service.sevnc.com/api/get-app?package_name=" + mContext.getPackageName();
+            url = "http://api.sevnc.com/advertise/get-advertise-crossover?package_name=" + mContext.getPackageName() + "&part=snippet";
             client = new AsyncHttpClient();
             client.get(mContext, url, new AsyncHttpResponseHandler() {
                 @Override
@@ -59,23 +62,23 @@ public class ExitAds {
 //                    Log.e("get ads ok", str);
                     gson = new Gson();
                     getAdsObj = gson.fromJson(str, AdsItems.class);
-                    Log.e("Tổng số quảng cáo", getAdsObj.getResults().size() + "");
+                    Log.e("Tổng số quảng cáo", getAdsObj.getItems().size() + "");
 
-                    if (getAdsObj.getResults().size() > 0) {
-                        ArrayList<AdsItems.ResultsBean> temp = new ArrayList<AdsItems.ResultsBean>();
+                    if (getAdsObj.getItems().size() > 0) {
+                        ArrayList<AdsItems.ItemsBean> temp = new ArrayList<AdsItems.ItemsBean>();
 
-                        temp.addAll(getAdsObj.getResults());
+                        temp.addAll(getAdsObj.getItems());
                         ads.clear();
                         focus_ads.clear();
                         for (int i = 0; i < temp.size(); i++) {
                             if (!isPackageInstalled(temp.get(i).getPackage_name(), mContext) && temp.get(i).getPriority().equals("0")) {
-                                ads.add(new AdsItems.ResultsBean(temp.get(i).getCat_int(), temp.get(i).getCategory(), temp.get(i).getApp_type(),
+                                ads.add(new AdsItems.ItemsBean(temp.get(i).getCat_int(), temp.get(i).getCategory(), temp.get(i).getApp_type(),
                                         temp.get(i).getType(), temp.get(i).getPackage_name(), temp.get(i).getTitle(), temp.get(i).getIcon(),
                                         temp.get(i).getAds_banner(), temp.get(i).getAds_priority_banner(), temp.get(i).getI18n_lang(),
                                         temp.get(i).getDeveloper(),
                                         temp.get(i).getCreated(), temp.get(i).getMarket_url(), temp.get(i).getPriority()));
                             } else if (!isPackageInstalled(temp.get(i).getPackage_name(), mContext) && temp.get(i).getPriority().equals("1")) {
-                                focus_ads.add(new AdsItems.ResultsBean(temp.get(i).getCat_int(), temp.get(i).getCategory(), temp.get(i).getApp_type(),
+                                focus_ads.add(new AdsItems.ItemsBean(temp.get(i).getCat_int(), temp.get(i).getCategory(), temp.get(i).getApp_type(),
                                         temp.get(i).getType(), temp.get(i).getPackage_name(), temp.get(i).getTitle(), temp.get(i).getIcon(),
                                         temp.get(i).getAds_banner(), temp.get(i).getAds_priority_banner(), temp.get(i).getI18n_lang(),
                                         temp.get(i).getDeveloper(),
@@ -94,6 +97,10 @@ public class ExitAds {
                             listApps.setHasFixedSize(false);
                             LinearLayoutManager mLayoutManager = new LinearLayoutManager(mContext);
                             mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                            listApps.setItemAnimator(new DefaultItemAnimator());
+                            DividerItemDecoration itemDecorator = new DividerItemDecoration(mContext, DividerItemDecoration.HORIZONTAL);
+                            itemDecorator.setDrawable(ContextCompat.getDrawable(mContext, R.drawable.divider));
+                            listApps.addItemDecoration(itemDecorator);
                             listApps.setAdapter(adapterAdsFb);
                             listApps.setLayoutManager(mLayoutManager);
                             listApps.addOnItemTouchListener(new RecyclerItemClickListener(mContext, new RecyclerItemClickListener.OnItemClickListener() {
@@ -102,12 +109,12 @@ public class ExitAds {
                                     openLink(mContext, ads.get(position).getPackage_name());
                                 }
                             }));
-                        }catch (Exception e){
-                            Log.e("catch in bannerAds", e.getMessage()+" se");
+                        } catch (Exception e) {
+                            Log.e("catch in bannerAds", e.getMessage() + " se");
                         }
 
                     }
-                    
+
                     if (focus_ads.size() > 0) {
                         try {
                             Random ran = new Random();

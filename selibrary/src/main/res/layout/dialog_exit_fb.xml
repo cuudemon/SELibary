@@ -29,7 +29,6 @@
                 android:id="@+id/tvAds"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/feed_item_profile_info_padd"
                 android:gravity="center_vertical"
                 android:text="@string/exitTile"
                 android:textColor="#ffffff"
@@ -46,13 +45,13 @@
             android:layout_below="@id/topMenu"
             android:orientation="vertical"
             android:padding="@dimen/margin"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/imFocus_Ads"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/focus_ads" />
+                android:src="@mipmap/vip02" />
 
         </LinearLayout>
 
@@ -63,6 +62,8 @@
             android:layout_below="@+id/focus_ads"
             android:gravity="center"
             android:paddingBottom="@dimen/margin"
+            android:paddingLeft="@dimen/margin"
+            android:paddingRight="@dimen/margin"
             android:visibility="gone">
 
 
@@ -89,14 +90,14 @@
             android:layout_height="@dimen/bottom_menu_height"
             android:layout_below="@+id/hor_line"
             android:gravity="center"
-            android:weightSum="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <LinearLayout
                 android:id="@+id/btnNo"
                 android:layout_width="0dp"
-                android:layout_weight="0.5"
                 android:layout_height="match_parent"
+                android:layout_weight="0.5"
                 android:background="@drawable/button_pressed"
                 android:gravity="center">
 
@@ -107,7 +108,8 @@
                     android:gravity="center_vertical"
                     android:text="@string/no"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
 
             </LinearLayout>
@@ -133,7 +135,8 @@
                     android:gravity="center"
                     android:text="@string/yes"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

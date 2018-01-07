@@ -58,7 +58,7 @@ public abstract class SEActivity extends AppCompatActivity {
                         JSONObject obj = new JSONObject(str);
                         String status = obj.getString(Utils.STATUS);
                         if (status.equals("ok")) {
-                            JSONArray arr = obj.getJSONArray(Utils.ADVERTISE);
+                            JSONArray arr = obj.getJSONArray(Utils.ITEMS);
                             JSONObject adsObj = arr.getJSONObject(0);
                             String idBanner = adsObj.getString(Utils.ID_BANNER);
                             String idFull = adsObj.getString(Utils.ID_FULL);
@@ -71,7 +71,7 @@ public abstract class SEActivity extends AppCompatActivity {
                                 Utils.saveIdFull(SEActivity.this, idFull);
 
                         } else {
-                            Log.e("messeage", "fail to get adsId");
+                            Log.e("messeage", "fail to parse json adsId");
                         }
 
                     } catch (Exception e) {
@@ -82,7 +82,7 @@ public abstract class SEActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                    Log.e("get id ads", "Fail to get ID");
+                    Log.e("get id ads", "Fail to get  adsID");
                 }
             });
         }
