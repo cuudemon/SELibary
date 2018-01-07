@@ -17,6 +17,8 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
+import static com.sevnc.selibrary.ads.AESDecrypt.decrypt;
+
 /**
  * Created by QuangVan on 27/12/2017.
  */
@@ -50,41 +52,46 @@ public abstract class SEActivity extends AppCompatActivity {
     protected void getIdAds() {
         if(Utils.isConnectingToInternet(this)) {
             adsIdClient = new AsyncHttpClient();
-            adsIdClient.get(this, Utils.GET_ADS_ID_URL + getPackageName(), new AsyncHttpResponseHandler() {
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                    try {
-                        String str = new String(responseBody);
-                        JSONObject obj = new JSONObject(str);
-                        String status = obj.getString(Utils.STATUS);
-                        if (status.equals("ok")) {
-                            JSONArray arr = obj.getJSONArray(Utils.ITEMS);
-                            JSONObject adsObj = arr.getJSONObject(0);
-                            String idBanner = adsObj.getString(Utils.ID_BANNER);
-                            String idFull = adsObj.getString(Utils.ID_FULL);
-                            String adsName = adsObj.getString(Utils.ADS_NAME);
-                            if (!ads_name.equals(adsName))
-                                Utils.saveAdsName(SEActivity.this, adsName);
-                            if (!id_banner.equals(idBanner))
-                                Utils.saveIdBanner(SEActivity.this, idBanner);
-                            if (!id_full.equals(idFull))
-                                Utils.saveIdFull(SEActivity.this, idFull);
+            try {
+                adsIdClient.get(this, decrypt(Utils.GET_ADS_ID_URL) + getPackageName(), new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        try {
+                            String str = new String(responseBody);
+                            Log.e("_ok_", str);
+                            JSONObject obj = new JSONObject(str);
+                            String status = obj.getString(Utils.STATUS);
+                            if (status.equals("ok")) {
+                                JSONArray arr = obj.getJSONArray(Utils.ITEMS);
+                                JSONObject adsObj = arr.getJSONObject(0);
+                                String idBanner = adsObj.getString(Utils.ID_BANNER);
+                                String idFull = adsObj.getString(Utils.ID_FULL);
+                                String adsName = adsObj.getString(Utils.ADS_NAME);
+                                if (!ads_name.equals(adsName))
+                                    Utils.saveAdsName(SEActivity.this, adsName);
+                                if (!id_banner.equals(idBanner))
+                                    Utils.saveIdBanner(SEActivity.this, idBanner);
+                                if (!id_full.equals(idFull))
+                                    Utils.saveIdFull(SEActivity.this, idFull);
 
-                        } else {
-                            Log.e("messeage", "fail to parse json adsId");
+                            } else {
+                                Log.e("messeage", "fail to parse json adsId");
+                            }
+
+                        } catch (Exception e) {
+                            Log.e("Catch in parse JSON", e.getMessage());
                         }
 
-                    } catch (Exception e) {
-                        Log.e("Catch in parse JSON", e.getMessage());
                     }
 
-                }
-
-                @Override
-                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                    Log.e("get id ads", "Fail to get  adsID");
-                }
-            });
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Log.e("get id ads", "Fail to get  adsID");
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SELibrary.iml" filepath="$PROJECT_DIR$/SELibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SEL.iml" filepath="$PROJECT_DIR$/SEL.iml" />
+      <module fileurl="file://C:\Users\ltdat\Desktop\SELibraty\SEL\SELibrary.iml" filepath="C:\Users\ltdat\Desktop\SELibraty\SEL\SELibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/selibrary/selibrary.iml" filepath="$PROJECT_DIR$/selibrary/selibrary.iml" />
     </modules>

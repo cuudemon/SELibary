@@ -6,4 +6,10 @@
     <string name="exitTile_on">Tải thêm nhiều ứng dụng hay?</string>
     <string name="ads">Ứng dụng hay</string>
     <string name="tentacgia">Trần Quang Văn</string>
+    <string name="name_se">Software Evolution</string>
+    <string name="name_uses">Tên..</string>
+    <string name="text_email">Email..</string>
+    <string name="text_feedback">Gửi phản hồi của bạn</string>
+    <string name="text_satisfaction">Mức độ hài lòng của bạn</string>
+    <string name="text_input_feedback">Phản hồi..</string>
 </resources>

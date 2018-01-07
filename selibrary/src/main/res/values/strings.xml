@@ -5,4 +5,10 @@
     <string name="exitTile">Are you sure want to exit?</string>
     <string name="exitTile_on">Download more useful applications?</string>
     <string name="ads">Recommend</string>
+    <string name="name_se">Software Evolution</string>
+    <string name="name_uses">Name.</string>
+    <string name="text_email">Email..</string>
+    <string name="text_feedback">Submit your feedback</string>
+    <string name="text_satisfaction">Your level of satisfaction</string>
+    <string name="text_input_feedback">Feedback..</string>
 </resources>

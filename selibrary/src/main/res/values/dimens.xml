@@ -13,4 +13,8 @@
     <dimen name="focus_ads">125dp</dimen>
     <dimen name="banner_ads_height">75dp</dimen>
     <dimen name="bottom_menu_height">45dp</dimen>
+    <dimen name="image_emoji_width">40dp</dimen>
+    <dimen name="image_emoji_height">40dp</dimen>
+    <dimen name="text_se_size">18dp</dimen>
+    <dimen name="text_feedback_size">20dp</dimen>
 </resources>
