@@ -6,9 +6,18 @@
     <string name="exitTile_on">Download more useful applications?</string>
     <string name="ads">Recommend</string>
     <string name="name_se">Software Evolution</string>
-    <string name="name_uses">Name.</string>
-    <string name="text_email">Email..</string>
-    <string name="text_feedback">Submit your feedback</string>
-    <string name="text_satisfaction">Your level of satisfaction</string>
-    <string name="text_input_feedback">Feedback..</string>
+    <string name="name_uses">Your Name..</string>
+    <string name="text_email">Your Email..</string>
+    <string name="text_feedback">Send your feedback for us!</string>
+    <string name="text_satisfaction">Your level of satisfaction:</string>
+    <string name="text_input_feedback">Feedback...</string>
+    <string name="send">Send</string>
+
+    <string name="type_feedback_content">Type your feedback!</string>
+    <string name="type_your_name">Type your name!</string>
+    <string name="type_your_email">Type your email!</string>
+    <string name="email_error">This is not an email address!</string>
+    <string name="thank_you">Thank you for your feedback!</string>
+    <string name="back_again">Press again to exit!</string>
+    <string name="connect_to_internet">Turn on network connection to send your feedback!</string>
 </resources>

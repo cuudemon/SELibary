@@ -12,30 +12,271 @@
     android:clickable="true"
     android:focusable="false">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
-            android:id="@+id/topMenu"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/colorPrimary">
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
-            <TextView
-                android:id="@+id/tvAds"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/topMenu"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin">
+
+                <TextView
+                    android:id="@+id/tv_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_marginStart="@dimen/margin"
+                    android:inputType="textCapWords"
+                    android:text="@string/text_feedback"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_feedback_size" />
+
+                <LinearLayout
+                    android:id="@+id/exit"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/exit_button"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_close" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/feedback_panel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/feedback_content_height"
+                android:layout_below="@+id/topMenu"
+                android:layout_margin="@dimen/margin"
+                android:background="@drawable/frame">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/feedbackContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/type_feedback_content"
+                        android:focusable="true"
+                        android:gravity="top|left|center"
+                        android:hint="@string/text_input_feedback"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:textColor="@color/feedback_text_color"
+                        android:textSize="@dimen/text_feedback_size">
+
+                        <requestFocus />
+                    </EditText>
+
+                </ScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/name_email_panel"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/feedback_panel"
+                android:layout_marginBottom="@dimen/margin"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/margin"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/frame">
+
+
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/type_your_name"
+                        android:focusable="true"
+                        android:gravity="left|center"
+                        android:hint="@string/name_uses"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLines="1"
+                        android:textColor="@color/feedback_text_color"
+                        android:textSize="@dimen/text_feedback_size">
+
+                    </EditText>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/frame">
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/type_your_email"
+                        android:focusable="true"
+                        android:gravity="left|center"
+                        android:hint="@string/text_email"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textColor="@color/feedback_text_color"
+                        android:textSize="@dimen/text_feedback_size">
+
+                    </EditText>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/contentmentPanel"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:text="@string/exitTile"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />
+                android:layout_below="@+id/name_email_panel"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin">
 
+                <TextView
+                    android:id="@+id/tvContentment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/text_satisfaction"
+                    android:textColor="@color/contentment_color"
+                    android:textSize="@dimen/text_feedback_size" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvContentment"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ic01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic1" />
+
+
+                    <ImageView
+                        android:id="@+id/ic02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/icon_margin"
+                        android:src="@mipmap/ic2" />
+
+
+                    <ImageView
+                        android:id="@+id/ic03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/icon_margin"
+                        android:src="@mipmap/ic3" />
+
+
+                    <ImageView
+                        android:id="@+id/ic04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/icon_margin"
+                        android:src="@mipmap/ic4" />
+
+
+                    <ImageView
+                        android:id="@+id/ic05"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/icon_margin"
+                        android:src="@mipmap/ic5" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/contentmentPanel"
+                android:layout_marginLeft="@dimen/margin">
+
+                <TextView
+                    android:id="@+id/tvSE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/name_se"
+                    android:textColor="@color/se_text_color"
+                    android:textSize="@dimen/se_text_size"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:id="@+id/sendButton"
+                    android:layout_width="@dimen/send_button_width"
+                    android:layout_height="33dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin"
+                    android:background="@drawable/send_button"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/send"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_feedback_size"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
-    </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/progress_size"
+            android:layout_height="@dimen/progress_size"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
 
 </android.support.v7.widget.CardView>

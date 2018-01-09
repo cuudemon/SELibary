@@ -112,13 +112,12 @@ public class ExitAds {
                         } catch (Exception e) {
                             Log.e("catch in bannerAds", e.getMessage() + " se");
                         }
-
                     }
 
                     if (focus_ads.size() > 0) {
                         try {
                             Random ran = new Random();
-                            int inter = ran.nextInt(focus_ads.size());
+                            final int inter = ran.nextInt(focus_ads.size());
                             LinearLayout llFocusAds = (LinearLayout) dialogAds.findViewById(R.id.focus_ads);
                             llFocusAds.setVisibility(View.VISIBLE);
                             ImageView imFocusAds = (ImageView) dialogAds.findViewById(R.id.imFocus_Ads);
@@ -127,12 +126,18 @@ public class ExitAds {
                                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                                     .fitCenter()
                                     .into(imFocusAds);
+
+                            llFocusAds.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    openLink(mContext, focus_ads.get(inter).getPackage_name());
+                                }
+                            });
                         } catch (Exception e) {
                             Log.e("catch in focusAds", e.getMessage() + " se");
                         }
 
                     }
-
 
                 }
 
@@ -174,15 +179,22 @@ public class ExitAds {
     }
 
     public void showExitDialog() {
-        dialogAds.show();
+        if (ads.size() == 0 && focus_ads.size() == 0)
+            exitApp(mContext);
+        else
+            dialogAds.show();
     }
 
     protected void openLink(Context mContext, String packageName) {
-        Log.d("onClick Item", "click Quang Cao");
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("market://details?id=" + packageName));
-        Log.v("namePakage", packageName);
-        mContext.startActivity(intent);
+        try {
+            Log.d("onClick Item", "click Quang Cao");
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("market://details?id=" + packageName));
+            Log.v("namePakage", packageName);
+            mContext.startActivity(intent);
+        } catch (Exception e) {
+            Log.e("catch in openLink", "catch in openLink");
+        }
     }
 
     private boolean isPackageInstalled(String packagename, Context context) {

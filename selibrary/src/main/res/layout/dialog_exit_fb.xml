@@ -38,22 +38,23 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:id="@+id/focus_ads"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/focus_ads"
-            android:layout_below="@id/topMenu"
-            android:orientation="vertical"
-            android:padding="@dimen/margin"
-            android:visibility="visible">
-
-            <ImageView
-                android:id="@+id/imFocus_Ads"
+            <LinearLayout
+                android:id="@+id/focus_ads"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@mipmap/vip02" />
+                android:layout_height="@dimen/focus_ads"
+                android:orientation="vertical"
+                android:layout_below="@+id/topMenu"
+                android:padding="@dimen/margin"
+                android:visibility="gone">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/imFocus_Ads"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/vip02" />
+
+            </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/listApps"

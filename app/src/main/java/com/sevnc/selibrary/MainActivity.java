@@ -1,6 +1,11 @@
 package com.sevnc.selibrary;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -16,7 +21,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends SEActivity {
 
-    AsyncHttpClient client;
+    Button mFeedback;
 
     @Override
     protected int getLayoutID() {
@@ -25,34 +30,17 @@ public class MainActivity extends SEActivity {
 
     @Override
     protected void settingView() {
-        String url1 = "http://api.sevnc.com/feedback/push";
-        NetworkAds.BannerAds(this, R.id.ads);
-        NetworkAds.loadFullAds(this);
+//        NetworkAds.BannerAds(this, R.id.ads);
+//        NetworkAds.loadFullAds(this);
 
+        mFeedback = (Button) findViewById(R.id.feedBack);
+        mFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                feedbackDialog̣();
+            }
+        });
 
-        //feedback
-//        client = new AsyncHttpClient();
-//        RequestParams params = new RequestParams();
-//        params.put("package_name", getPackageName());
-//        params.put("app_name", R.string.app_name);
-//        params.put("email", "quangvan08it@gmail.com");
-//        params.put("content", "Anh Văn test feedback! 10h41");
-//        client.post(this, url1, params, new AsyncHttpResponseHandler() {
-//
-//            @Override
-//            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-//
-//                String str = new String(responseBody);
-//                Log.e("feedback ok", str + " se");
-//
-//            }
-//
-//            @Override
-//            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-//                String str = new String(responseBody);
-//                Log.e("fail to feedback", str + " se");
-//            }
-//        });
     }
 
     @Override

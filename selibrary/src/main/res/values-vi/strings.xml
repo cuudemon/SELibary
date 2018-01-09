@@ -9,7 +9,16 @@
     <string name="name_se">Software Evolution</string>
     <string name="name_uses">Tên..</string>
     <string name="text_email">Email..</string>
-    <string name="text_feedback">Gửi phản hồi của bạn</string>
-    <string name="text_satisfaction">Mức độ hài lòng của bạn</string>
-    <string name="text_input_feedback">Phản hồi..</string>
+    <string name="text_feedback">Gửi phản hồi cho chúng tôi!</string>
+    <string name="text_satisfaction">Mức độ hài lòng của bạn:</string>
+    <string name="text_input_feedback">Phản hồi...</string>
+    <string name="send">Gửi</string>
+
+    <string name="type_feedback_content">Nhập phản hồi của bạn!</string>
+    <string name="type_your_name">Nhập tên của bạn!</string>
+    <string name="type_your_email">Nhập email của bạn!</string>
+    <string name="email_error">Đây không phải là 1 email hợp lệ!</string>
+    <string name="thank_you">Cảm ơn vì phản hồi của bạn!</string>
+    <string name="back_again">Nhấn thêm lần nữa để thoát!</string>
+    <string name="connect_to_internet">Bật kết nối mạng để gửi phản hồi của bạn!</string>
 </resources>

@@ -17,4 +17,7 @@
     <dimen name="image_emoji_height">60dp</dimen>
     <dimen name="text_se_size">20dp</dimen>
     <dimen name="text_feedback_size">22dp</dimen>
+    <dimen name="send_button_width">80dp</dimen>
+    <dimen name="icon_margin">10dp</dimen>
+    <dimen name="progress_size">70dp</dimen>
 </resources>
