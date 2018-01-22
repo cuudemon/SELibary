@@ -30,8 +30,8 @@ public class MainActivity extends SEActivity {
 
     @Override
     protected void settingView() {
-//        NetworkAds.BannerAds(this, R.id.ads);
-//        NetworkAds.loadFullAds(this);
+        NetworkAds.BannerAds(this, R.id.ads);
+        NetworkAds.loadFullAds(this);
 
         mFeedback = (Button) findViewById(R.id.feedBack);
         mFeedback.setOnClickListener(new View.OnClickListener() {

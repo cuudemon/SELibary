@@ -20,4 +20,5 @@
     <string name="thank_you">Thank you for your feedback!</string>
     <string name="back_again">Press again to exit!</string>
     <string name="connect_to_internet">Turn on network connection to send your feedback!</string>
+    <string name="SE_API_KEY">YOUR_API_KEY</string>
 </resources>

@@ -70,10 +70,14 @@ public abstract class SEActivity extends AppCompatActivity {
     protected void getIdAds() {
         if (Utils.isConnectingToInternet(this)) {
             adsIdClient = new AsyncHttpClient();
+
             try {
-                adsIdClient.get(this, decrypt(Utils.GET_ADS_ID_URL) + getPackageName(), new AsyncHttpResponseHandler() {
+                final String url = decrypt("Ey5w0OaNkotlqXIaZ8jpkRhyTgCTeAOJbRGj1E1k1UJdo4icqTwr6MR39lhpAF0gkFtqsJwVnAR2HbN+W+zLOQ==") + getPackageName() + "&api_key=" + getString(R.string.SE_API_KEY);
+                adsIdClient.get(this, url, new AsyncHttpResponseHandler() {
+
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        Log.e("url", url);
                         try {
                             String str = new String(responseBody);
                             Log.e("_ok_", str);
@@ -260,6 +264,7 @@ public abstract class SEActivity extends AppCompatActivity {
                         params.put("star", star);
                         params.put("email", email.getText().toString());
                         params.put("content", content.getText().toString());
+                        params.put("api_key", getString(R.string.SE_API_KEY));
                         client.post(SEActivity.this, Utils.POST_FEEDBACK_URL, params, new AsyncHttpResponseHandler() {
 
                             @Override
@@ -302,7 +307,7 @@ public abstract class SEActivity extends AppCompatActivity {
             });
 
             feedbackDialog.show();
-        }else{
+        } else {
             Toast toast = Toast.makeText(SEActivity.this,
                     getString(R.string.connect_to_internet), Toast.LENGTH_SHORT);
             toast.show();
